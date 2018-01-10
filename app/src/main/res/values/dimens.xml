@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="single_height">85dp</dimen>
+    <dimen name="size_of_divider">3dp</dimen>
+</resources>
