@@ -2,6 +2,8 @@ package com.example.alumne.actionbar_jtorrus
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var data: ArrayList<String>
@@ -10,10 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fillDataToArr()
+        showListView()
     }
 
-    fun fillDataToArr() {
+    fun fillDataToArr(): ArrayList<String> {
         data = ArrayList<String>()
 
         val stringsToUse = this.resources.getStringArray(R.array.strings_to_use)
@@ -24,5 +26,11 @@ class MainActivity : AppCompatActivity() {
             data.add(item)
         }
 
+        return data
+    }
+
+    fun showListView() {
+        val adapter: ArrayAdapter<String> = ArrayAdapter(this, android.R.layout.simple_list_item_1, fillDataToArr())
+        list_view.adapter = adapter
     }
 }
