@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ActionBar_JTorrus.iml" filepath="$PROJECT_DIR$/ActionBar_JTorrus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ActionBar_Ejercicio.iml" filepath="$PROJECT_DIR$/.idea/ActionBar_Ejercicio.iml" />
+      <module fileurl="file://C:\Users\Usuari1\AndroidStudioProjects\ActionBar_Ejercicio\ActionBar_JTorrus.iml" filepath="C:\Users\Usuari1\AndroidStudioProjects\ActionBar_Ejercicio\ActionBar_JTorrus.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Usuari1\AndroidStudioProjects\ActionBar_Ejercicio\app\app.iml" filepath="C:\Users\Usuari1\AndroidStudioProjects\ActionBar_Ejercicio\app\app.iml" />
     </modules>
   </component>
 </project>
