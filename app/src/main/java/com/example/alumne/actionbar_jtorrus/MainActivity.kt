@@ -5,11 +5,26 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
+import android.widget.SearchView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     private lateinit var data: ArrayList<String>
+    private lateinit var mSearchView: SearchView
+
+    override fun onQueryTextSubmit(text: String?): Boolean {
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+
+        return false
+    }
+
+    override fun onQueryTextChange(text: String?): Boolean {
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+
+        return false
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,11 +52,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        if (super.onCreateOptionsMenu(menu)) {
+        return if (super.onCreateOptionsMenu(menu)) {
             menuInflater.inflate(R.menu.menu, menu)
-            return true
+
+            val searchItem: MenuItem? = menu?.findItem(R.id.action_search)
+            mSearchView = searchItem?.actionView as SearchView
+            mSearchView.queryHint = "Escribe algo"
+
+            mSearchView.setOnQueryTextListener(this)
+            true
         } else {
-            return false
+            false
         }
     }
 
