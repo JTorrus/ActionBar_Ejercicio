@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.support.v7.widget.SearchView
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -15,15 +14,13 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     private lateinit var mSearchView: SearchView
 
     override fun onQueryTextSubmit(text: String?): Boolean {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
-
         return false
     }
 
     override fun onQueryTextChange(text: String?): Boolean {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
-
-        return false
+        val adapter = list_view.adapter as ArrayAdapter<String>
+        adapter.filter.filter(text)
+        return true
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,10 +67,6 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         return when (item?.itemId) {
             R.id.action_add -> {
                 addRandomItem(Random(), "abcdefgh", 5);
-                true
-            }
-
-            R.id.action_search -> {
                 true
             }
 
